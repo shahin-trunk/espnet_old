@@ -64,7 +64,7 @@ tag="" # tag for managing experiments.
 
 # configuration files during training
 preprocess_config=conf/specaug.yaml
-train_config=conf/train.yaml # current default recipe requires 4 gpus.
+train_config=conf/tuning/train_pytorch_transformer_large_ngpu4.yaml # current default recipe requires 4 gpus.
                              # if you do not have 4 gpus, please reconfigure the `batch-bins` and `accum-grad` parameters in config.
 lm_config=conf/lm_transformer.yaml
 decode_config=conf/decode.yaml
@@ -219,9 +219,9 @@ if [ -z ${tag} ]; then
     if ${do_delta}; then
         expname=${expname}_delta
     fi
-    if [ -n "${preprocess_config}" ]; then 
-	expname=${expname}_$(basename ${preprocess_config%.*}) 
-    fi 
+    if [ -n "${preprocess_config}" ]; then
+	expname=${expname}_$(basename ${preprocess_config%.*})
+    fi
 else
     expname=${train_set}_${backend}_${tag}
 fi

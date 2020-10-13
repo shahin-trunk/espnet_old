@@ -146,6 +146,7 @@ fi
 cd ..
 
 vols="-v ${PWD}/egs:/espnet/egs
+      -v ${PWD}/egs2:/espnet/egs2
       -v ${PWD}/espnet:/espnet/espnet
       -v ${PWD}/test:/espnet/test 
       -v ${PWD}/utils:/espnet/utils"
